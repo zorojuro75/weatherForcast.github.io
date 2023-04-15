@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="rain.png" type="image/x-icon">
+    <title>Weather Forecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-3/4 mb-8 md:mb-0 md:pr-4">
+            <div class="backdrop-filter backdrop-blur-md rounded-lg shadow-md px-4 py-6 md:p-8 h-full"
+                style="height: 95vh;">
+                <div class="flex mb-4 px-4">
+                    <input type="text" placeholder="Enter a location" id="location"
+                        class="bg-transparent w-full rounded border mr-0 border-gray-400 text-gray-800 p-3 block focus:outline-none">
+                    <button onclick="submit()"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-r-lg py-2 px-4">
+                        <svg class="w-6 h-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path
+                                d="M22 22L15.5 15.5M4.5 11C4.5 7.41015 7.41015 4.5 11 4.5C14.5899 4.5 17.5 7.41015 17.5 11C17.5 14.5899 14.5899 17.5 11 17.5C7.41015 17.5 4.5 14.5899 4.5 11Z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex mt-24 py-8 border-b-2">
+                    <div class="py-2 px-4 text-left">
+                        <div id="temp" class="text-4xl font-bold"></div>
+                        <div class="text-xl font-bold">feels like <span id="feels"></span></div>
+                    </div>
+                    <div class="py-2 px-4 text-center">
+                        <h2 id="place" class="text-4xl font-bold px-4">Dhaka</h2>
+                        <h3 id="date" class="text-xl font-semibold px-4"></h3>
+                    </div>
+                    <div class="py-2 px-4 flex flex-col items-end" id="main">
+                    </div>
+
+                </div>
+                <div class="py-8">
+                    <h2 class="px-4 text-2xl font-bold mb-4">Weather Forecast</h2>
+
+                    <table class="table-auto w-full">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 text-left">Date</th>
+                                <th class="py-2 px-4 text-center">Temperature</th>
+                                <th class="py-2 px-4 text-right">Weather</th>
+                            </tr>
+                        </thead>
+                        <tbody id="forecast">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/4">
+            <div class="backdrop-filter backdrop-blur-md rounded-lg shadow-md px-4 py-6 md:p-8" style="height: 95vh;">
+                <!-- common places  -->
+                <div class="px-2 py-2 text-2xl text-gray-600">some common places</div>
+                <!-- places  -->
+                <div class="px-2 py-4 border-t-2 border-b-2 border-gray-400">
+                    <div class="flex justify-between cursor-pointer py-1" onclick="selected('Dhaka')">
+                        <p class="text-gray-500">Dhaka</p>
+                        <p class="text-gray-500">Bangladesh</p>
+                    </div>
+                    <div class="flex justify-between cursor-pointer py-1" onclick="selected('London')">
+                        <p class="text-gray-500">London</p>
+                        <p class="text-gray-500">UK</p>
+                    </div>
+                    <div class="flex justify-between cursor-pointer py-1" onclick="selected('New York')">
+                        <p class="text-gray-500">New York</p>
+                        <p class="text-gray-500">USA</p>
+                    </div>
+                    <div class="flex justify-between cursor-pointer py-1" onclick="selected('Munich')">
+                        <p class="text-gray-500">Munich</p>
+                        <p class="text-gray-500">Germany</p>
+                    </div>
+                </div>
+                <!-- weather details  -->
+                <div class="px-2 py-8">
+                    <h2 class="text-2xl font-bold mb-4">Weather Details</h2>
+                    <div class="flex justify-between py-1">
+                        <p class="text-gray-500">Temperature</p>
+                        <p class="text-gray-500" id="weather-temp"></p>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <p class="text-gray-500">Cloudy</p>
+                        <p class="text-gray-500" id="cloudy"></p>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <p class="text-gray-500">Humidity</p>
+                        <p class="text-gray-500" id="humidity"></p>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <p class="text-gray-500">Wind</p>
+                        <p class="text-gray-500" id="wind"></p>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <p class="text-gray-500">Rain</p>
+                        <p class="text-gray-500" id="rain"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
